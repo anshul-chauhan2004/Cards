@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+      #cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        gap: 20px;
+        justify-content: center;
+      }
+      .card {
+        height: 150px;
+        width: 200px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+      .card img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+      }
+      .card:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cards-container">
+      <!-- Cards will be generated here by JavaScript -->
+    </div>
+
+    <script>
+      // Define card details with images
+      const cardDetails = {
+        1: {
+          text: "",
+          image:
+            "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg",
+        },
+        2: {
+          text: "Classic Eggs Benedict With Blender Hollandaise",
+          image:
+            "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-craig-122861-376464.jpg&fm=jpg",
+        },
+        3: {
+          text: "Easy Coffee Cake",
+          image:
+            "https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg",
+        },
+        4: {
+          text: "Coconut Rhubarb French Toast",
+          image:
+            "https://www.foodiesfeed.com/wp-content/uploads/2023/06/pouring-honey-on-pancakes.jpg",
+        },
+        5: {
+          text: "Baked Apple Pie",
+          image:
+            "https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg",
+        },
+        6: {
+          text: "Details for Card 6",
+          image:
+            "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?resize=768,574",
+        },
+        7: {
+          text: "Details for Card 7",
+          image:
+            "https://www.foodiesfeed.com/wp-content/uploads/2023/04/strawberry-milk-splash.jpg",
+        },
+        8: {
+          text: "Details for Card 8",
+          image:
+            "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/6/12/3/FNM070116_Penne-with-Vodka-Sauce-and-Mini-Meatballs-recipe_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1465939620872.jpeg",
+        },
+        9: {
+          text: "Details for Card 9",
+          image:
+            "https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Corndogs-7832ef6.jpg?quality=90&resize=556,505",
+        },
+        10: {
+          text: "Details for Card 10",
+          image:
+            "https://www.eatingwell.com/thmb/QYZnBgF72TIKI6-A--NyoPa6avY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/greek-salmon-bowl-f681500cbe054bb1adb607ff55094075.jpeg",
+        },
+        11: {
+          text: "Details for Card 11",
+          image:
+            "https://assets.epicurious.com/photos/62c4b089bfd689c61cf0ac8c/1:1/w_2580%2Cc_limit/Chilaquiles_RECIPE_062922_36571.jpg",
+        },
+        12: {
+          text: "Details for Card 12",
+          image:
+            "https://assets.epicurious.com/photos/631f4651b3bc412fb83806ae/1:1/w_2580%2Cc_limit/HashBrownCasserole_RECIPE_090721_2083.jpg",
+        },
+      };
+
+      const container = document.getElementById("cards-container");
+      for (let i = 1; i <= 12; i++) {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const img = document.createElement("img");
+        img.src = cardDetails[i].image;
+        img.alt = `Card ${i} image`;
+        card.appendChild(img);
+
+        card.onclick = () => {
+          window.location.href = `details.html?id=${i}&details=${encodeURIComponent(
+            cardDetails[i].text
+          )}&image=${encodeURIComponent(cardDetails[i].image)}`;
+        };
+
+        container.appendChild(card);
+      }
+    </script>
+  </body>
+</html>
